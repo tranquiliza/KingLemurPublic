@@ -1,0 +1,26 @@
+scp -r D:\Development\Code\KingLemurJulian\KingLemurJulian.BackgroundHost\bin\Release\net5.0\publish\* username@IP:/home/tranq/kinglemurjulian
+
+sudo nano /etc/systemd/system/kinglemurjulian.service
+
+[Unit]
+Description=KingLemurJulian
+
+[Service]
+WorkingDirectory=/home/tranq/kinglemurjulian/
+ExecStart=dotnet /home/tranq/kinglemurjulian/KingLemurJulian.BackgroundHost.dll
+Restart=always
+# Restart service after 10 seconds if the dotnet service crashes:
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=dotnet-example
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+
+[Install]
+WantedBy=multi-user.target
+
+sudo systemctl enable kinglemurjulian.service
+sudo systemctl start kinglemurjulian.service 
+sudo systemctl status kinglemurjulian.service
+sudo systemctl disable kinglemurjulian.service

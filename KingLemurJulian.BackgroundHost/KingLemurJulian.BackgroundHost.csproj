@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>dotnet-KingLemurJulian.BackgroundHost-3CD931B6-BA1A-4700-941C-0540682E8C4B</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="9.0.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
+    <PackageReference Include="Seq.Extensions.Logging" Version="4.0.2" />
+    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="Serilog.AspNetCore" Version="3.4.0" />
+    <PackageReference Include="Serilog.Sinks.Seq" Version="4.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KingLemurJulian.Core\KingLemurJulian.Core.csproj" />
+    <ProjectReference Include="..\KingLemurJulian.Sql\KingLemurJulian.Sql.csproj" />
+    <ProjectReference Include="..\KingLemurJulian.TwitchIntegration\KingLemurJulian.TwitchIntegration.csproj" />
+  </ItemGroup>
+</Project>
